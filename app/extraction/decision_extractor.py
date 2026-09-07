@@ -50,3 +50,10 @@ if __name__ == "__main__":
         decision = extract_decision_from_transcript(transcript)
 
         print(decision.model_dump_json(indent=2))
+
+        with open(
+            "data/processed/decision_001.json", 
+            "w", 
+            encoding="utf-8"
+        ) as out_f:
+            out_f.write(decision.model_dump_json(indent=2))

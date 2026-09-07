@@ -1,0 +1,17 @@
+{
+  "decision": "RabbitMQ",
+  "alternatives": [
+    "Kafka"
+  ],
+  "rationale": [
+    "RabbitMQ should be sufficient for the current workload of 2,000 events per second.",
+    "Kafka would scale better for a workload exceeding 10,000 events per second."
+  ],
+  "assumptions": [
+    "The current workload of 2,000 events per second is sufficient for the event processing system.",
+    "The decision to switch to Kafka would be reconsidered if traffic exceeds 10,000 events per second."
+  ],
+  "review_triggers": [
+    "Traffic exceeding 10,000 events per second."
+  ]
+}
