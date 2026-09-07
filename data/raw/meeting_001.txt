@@ -1,0 +1,24 @@
+Architecture Review Meeting
+Date: 2026-09-01
+
+Alice:
+We need to decide whether to use Kafka or RabbitMQ
+for our event processing system.
+
+Bob:
+I recommend RabbitMQ. Our current workload is around
+2,000 events per second, and RabbitMQ should be sufficient.
+
+Carol:
+What happens if the workload increases?
+
+Bob:
+If we cross 10,000 events per second, we should reconsider
+Kafka because Kafka would scale better for that workload.
+
+Alice:
+Agreed. Let's use RabbitMQ for now and review the decision
+if traffic exceeds 10,000 events per second.
+
+Decision:
+The team will use RabbitMQ for the event processing system.
