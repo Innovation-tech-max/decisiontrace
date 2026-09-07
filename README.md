@@ -433,7 +433,7 @@ decisiontrace/
 
 ---
 
-# 🧪 Example
+#  Example
 
 ### Input
 
@@ -613,8 +613,8 @@ This makes the project easier to understand, test, optimize and defend technical
 
 ##  Project Status
 
-** Early development**
-
+**Early development
+**
 The project is being built incrementally with a focus on understanding the underlying LLM/RAG architecture rather than hiding complexity behind frameworks.
 
 ---
