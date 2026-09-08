@@ -1,0 +1,93 @@
+Architecture Decision Meeting
+Decision ID: DEC-001
+Date: 2026-09-08
+
+Participants:
+Alice - Engineering Manager
+Bob - Backend Engineer
+Carol - Platform Engineer
+David - Product Manager
+
+Alice:
+We need to finalize the messaging platform for the new
+order processing system.
+
+The two options we have evaluated are Apache Kafka and RabbitMQ.
+
+Bob:
+I recommend RabbitMQ for the initial implementation.
+
+Our expected workload is around 2,000 messages per second.
+RabbitMQ is sufficient for this workload and will allow the
+backend team to implement the system quickly.
+
+Carol:
+I agree that RabbitMQ is simpler for our current requirements.
+
+However, Kafka would provide better scalability if our traffic
+increases significantly.
+
+David:
+What traffic level would require us to reconsider the decision?
+
+Carol:
+If sustained traffic exceeds 10,000 messages per second,
+we should evaluate moving to Kafka.
+
+We should also reconsider the decision if we require long-term
+event replay across multiple consumers.
+
+Bob:
+That's reasonable.
+
+For the current system, we don't require long-term event replay.
+Our primary requirement is reliable message delivery between
+the order service and the downstream processing services.
+
+Alice:
+What are the risks of choosing RabbitMQ?
+
+Carol:
+The main risk is scalability. If traffic grows significantly,
+RabbitMQ may become less suitable than Kafka.
+
+Bob:
+Another consideration is operational familiarity.
+The backend team already has experience operating RabbitMQ,
+which should reduce implementation and operational overhead.
+
+David:
+Are we comfortable accepting that scalability risk?
+
+Alice:
+Yes. Given the current expected workload and requirements,
+the simplicity and team familiarity outweigh the future
+scalability concern.
+
+Alice:
+Let's make the decision official.
+
+Decision:
+The team will use RabbitMQ for the initial order processing
+system.
+
+Rationale:
+RabbitMQ is sufficient for the expected workload of approximately
+2,000 messages per second, supports reliable message delivery,
+and is already familiar to the backend team.
+
+Assumptions:
+The workload will remain below 10,000 messages per second.
+The system will not initially require long-term event replay.
+The primary requirement will remain reliable message delivery.
+
+Review Triggers:
+Reconsider the decision if sustained traffic exceeds 10,000
+messages per second.
+Reconsider the decision if long-term event replay becomes a
+required capability.
+Reconsider the decision if the system architecture changes
+to require Kafka's scalability or replay capabilities.
+
+Final Decision:
+Use RabbitMQ for the initial order processing system.
